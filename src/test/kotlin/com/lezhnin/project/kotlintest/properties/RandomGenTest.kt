@@ -8,15 +8,13 @@ import io.kotlintest.specs.WordSpec
 class RandomGenTest : WordSpec({
     "a generated random uppercase value" should {
         "be in upper case" {
-            Generator()
-                    .gen(
-                            object : RandomGen<String>() {
-                                override fun random(): Sequence<String> = Gen.string().random().map { it.toUpperCase() }
-                            }
-                    )
-                    .forAll {
-                        it should beUpperCase()
+            Generator.gen(
+                    object : RandomGen<String>() {
+                        override fun random(): Sequence<String> = Gen.string().random().map { it.toUpperCase() }
                     }
+            ).forAll {
+                it should beUpperCase()
+            }
         }
     }
 })

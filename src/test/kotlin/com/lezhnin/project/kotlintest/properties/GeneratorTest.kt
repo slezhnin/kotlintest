@@ -10,15 +10,13 @@ class GeneratorTest : WordSpec({
             Generator(1).gen(Gen.int()).forAll { it shouldBe it }
         }
         "generate 1 random value" {
-            Generator()
-                    .gen(Gen.string())
+            Generator.gen(Gen.string())
                     .forAll {
                         it shouldBe it
                     }
         }
         "generate 2 random values" {
-            Generator()
-                    .gen(Gen.string())
+            Generator.gen(Gen.string())
                     .gen(Gen.int())
                     .forAll { a, b ->
                         a shouldBe a
@@ -26,8 +24,7 @@ class GeneratorTest : WordSpec({
                     }
         }
         "generate 3 random values" {
-            Generator()
-                    .gen(Gen.string())
+            Generator.gen(Gen.string())
                     .gen(Gen.int())
                     .gen(Gen.string())
                     .forAll { a, b, c ->
@@ -37,8 +34,7 @@ class GeneratorTest : WordSpec({
                     }
         }
         "generate 4 random values" {
-            Generator()
-                    .gen(Gen.string())
+            Generator.gen(Gen.string())
                     .gen(Gen.int())
                     .gen(Gen.string())
                     .gen(Gen.int())
@@ -50,8 +46,7 @@ class GeneratorTest : WordSpec({
                     }
         }
         "generate 5 random values" {
-            Generator()
-                    .gen(Gen.string())
+            Generator.gen(Gen.string())
                     .gen(Gen.int())
                     .gen(Gen.string())
                     .gen(Gen.int())
@@ -65,8 +60,7 @@ class GeneratorTest : WordSpec({
                     }
         }
         "generate 6 random values" {
-            Generator()
-                    .gen(Gen.string())
+            Generator.gen(Gen.string())
                     .gen(Gen.int())
                     .gen(Gen.string())
                     .gen(Gen.int())
@@ -82,8 +76,7 @@ class GeneratorTest : WordSpec({
                     }
         }
         "generate 7 random values" {
-            Generator()
-                    .gen(Gen.string())
+            Generator.gen(Gen.string())
                     .gen(Gen.int())
                     .gen(Gen.string())
                     .gen(Gen.int())

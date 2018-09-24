@@ -8,15 +8,13 @@ import io.kotlintest.specs.WordSpec
 class ConstantGenTest : WordSpec({
     "a generated constant uppercase value" should {
         "be in upper case" {
-            Generator()
-                    .gen(
-                            object : ConstantGen<String>() {
-                                override fun constants(): Iterable<String> = Gen.string().constants().map { it.toUpperCase() }
-                            }
-                    )
-                    .forAll {
-                        it should beUpperCase()
+            Generator.gen(
+                    object : ConstantGen<String>() {
+                        override fun constants(): Iterable<String> = Gen.string().constants().map { it.toUpperCase() }
                     }
+            ).forAll {
+                it should beUpperCase()
+            }
         }
     }
 })
